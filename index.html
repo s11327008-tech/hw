@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的網站</title>
+
+    <style>
+        body { font-family: Arial; text-align: center; }
+
+        .mobile { display: none; }
+
+        @media (max-width: 768px) {
+            .desktop { display: none; }
+            .mobile { display: block; }
+        }
+
+        @media (min-width: 769px) {
+            .desktop { display: block; }
+            .mobile { display: none; }
+        }
+
+        .box {
+            border: 2px solid black;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+
+    <script>
+        function show(type) {
+            let ids = ["intro_d", "skill_d", "intro_m", "skill_m"];
+            for (let i = 0; i < ids.length; i++) {
+                document.getElementById(ids[i]).style.display = "none";
+            }
+
+            if(type === "intro"){
+                document.getElementById("intro_d").style.display = "block";
+                document.getElementById("intro_m").style.display = "block";
+            }else{
+                document.getElementById("skill_d").style.display = "block";
+                document.getElementById("skill_m").style.display = "block";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<h1>我的個人網站</h1>
+
+<button onclick="show('intro')">個人簡介</button>
+<button onclick="show('skill')">興趣專長</button>
+
+<!-- 桌機 -->
+<div class="desktop box">
+    <h2>桌機版本</h2>
+
+    <div id="intro_d">
+        <p>我是吳政諺，來自台南。</p>
+        <p>學校：朝陽科技大學</p>
+        <p>生日：2006/05/26</p>
+    </div>
+
+    <div id="skill_d" style="display:none;">
+        <p>興趣：打遊戲、寫程式</p>
+        <p>專長：C語言、Java</p>
+    </div>
+</div>
+
+<!-- 手機 -->
+<div class="mobile box">
+    <h2>手機版本</h2>
+
+    <div id="intro_m">
+        <p>嗨～我是政諺 👋</p>
+        <p>🎓 朝陽科技大學</p>
+        <p>🎂 2006/05/26</p>
+    </div>
+
+    <div id="skill_m" style="display:none;">
+        <p>🎮 遊戲 / 💻 程式</p>
+    </div>
+</div>
+
+</body>
+</html>
